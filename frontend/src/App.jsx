@@ -1,35 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from "react";
+import { addPatient, updateMedicalHistory, getPatient } from "./blockchain/interact";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [form, setForm] = useState({ name: "", age: "", medicalHistory: "", doctor: "" });
+  const [patientData, setPatientData] = useState(null);
+
+  const handleInputChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+
+  const handleAddPatient = async () => {
+    await addPatient(form.name, parseInt(form.age), form.medicalHistory, form.doctor);
+    alert("Patient added successfully");
+  };
+
+  const handleUpdateMedicalHistory = async () => {
+    await updateMedicalHistory(form.medicalHistory);
+    alert("Medical history updated successfully");
+  };
+
+  const handleGetPatient = async () => {
+    const data = await getPatient(form.doctor);
+    setPatientData(data);
+  };
 
   return (
-    <>
+    <div className="App">
+      <h1>Blockchain Patient Management</h1>
+
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <input name="name" placeholder="Name" onChange={handleInputChange} />
+        <input name="age" placeholder="Age" type="number" onChange={handleInputChange} />
+        <input name="medicalHistory" placeholder="Medical History" onChange={handleInputChange} />
+        <input name="doctor" placeholder="Doctor Address" onChange={handleInputChange} />
+
+        <button onClick={handleAddPatient}>Add Patient</button>
+        <button onClick={handleUpdateMedicalHistory}>Update Medical History</button>
+        <button onClick={handleGetPatient}>Get Patient</button>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+
+      {patientData && (
+        <div>
+          <h2>Patient Data</h2>
+          <p>Name: {patientData.name}</p>
+          <p>Age: {patientData.age}</p>
+          <p>Medical History: {patientData.medicalHistory}</p>
+        </div>
+      )}
+    </div>
+  );
 }
 
-export default App
+export default App;

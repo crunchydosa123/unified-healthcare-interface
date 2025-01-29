@@ -9,8 +9,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+  "devDependencies": {
     "hardhat": "^2.22.18"
   }
 }
