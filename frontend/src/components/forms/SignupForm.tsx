@@ -1,4 +1,5 @@
 import React from 'react'
+import Dropdown from '../widgets/Dropdown'
 
 type Props = {}
 
@@ -10,6 +11,13 @@ const SignupForm = (props: Props) => {
             <input type="text" placeholder="Username" className="p-2 border border-gray-300 rounded-md" />
             <input type="password" placeholder="Password" className="p-2 border border-gray-300 rounded-md" />
             <input type="password" placeholder="Confirm Password" className="p-2 border border-gray-300 rounded-md" />
+            <Dropdown 
+            title="Role" 
+            options={[
+              { label: "Doctor", href: "/profile" },
+              { label: "Patient", href: "/settings" },
+            ]} 
+            />
             <button className="p-2 bg-blue-500 text-white rounded-md">Signup</button>
           </form>
         </div>
