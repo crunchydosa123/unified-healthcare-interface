@@ -1,9 +1,9 @@
-import React from 'react'
+//import React from 'react'
 import Dropdown from '../widgets/Dropdown'
 
-type Props = {}
+//type Props = {}
 
-const SignupForm = (props: Props) => {
+const SignupForm = () => {
     return (
         <div className="flex flex-col p-5 border border-blue-300 rounded-md w-1/3">
           <h2 className="text-2xl font-bold mb-2">Signup</h2>
