@@ -1,9 +1,9 @@
-import Web3 from "web3";  // ES6 import
+import Web3 from "web3"; 
 const web3 = new Web3("http://127.0.0.1:9545");
 import { v4 as uuidv4 } from 'uuid';
 
 // Smart contract details
-const contractABI =   [
+const contractABI =  [
   {
     "inputs": [],
     "name": "doctorCount",
@@ -507,7 +507,7 @@ async function getAccount() {
     return accounts[0]; 
 }
 
-async function testAddPatient(name, age, weight, height){
+async function AddPatient(name, age, weight, height){
     try {
         const account = await getAccount(); 
         const id = uuidv4();
@@ -519,7 +519,7 @@ async function testAddPatient(name, age, weight, height){
     }
 }
 
-async function testGetPatientCount(){
+async function GetPatientCount(){
     try {
         const account = await getAccount(); 
         const res = await contract.methods.getPatientCount().call({ from: account, gas: 500000 });
@@ -529,7 +529,7 @@ async function testGetPatientCount(){
     }
 }
 
-async function testGetAllPatients(){
+async function GetAllPatients(){
     try {
         const account = await getAccount(); 
         const res = await contract.methods.getPatients().call();
@@ -539,7 +539,7 @@ async function testGetAllPatients(){
     }
 }
 
-async function testAddSurgery(doctorid, patientid, description){
+async function AddSurgery(doctorid, patientid, description){
   try {
       const account = await getAccount(); 
       const id = uuidv4();
@@ -551,7 +551,7 @@ async function testAddSurgery(doctorid, patientid, description){
   }
 }
 
-async function testAddDoctor(name, age, weight, height){
+async function AddDoctor(name, age, weight, height){
   try {
       const account = await getAccount(); 
       const id = uuidv4();
@@ -564,7 +564,7 @@ async function testAddDoctor(name, age, weight, height){
   }
 }
 
-async function testGetAllDoctors(){
+async function GetAllDoctors(){
   try {
       const account = await getAccount(); 
       const res = await contract.methods.getDoctors().call();
@@ -574,7 +574,7 @@ async function testGetAllDoctors(){
   }
 }
 
-async function testGetSingleDoctors(id){
+async function GetSingleDoctors(id){
   try {
       const account = await getAccount(); 
       const res = await contract.methods.getDoctor(id).call();
@@ -585,7 +585,7 @@ async function testGetSingleDoctors(id){
 }
 
 
-async function testGetSinglePatient(id){
+async function GetSinglePatient(id){
   try {
       const account = await getAccount(); 
       const res = await contract.methods.getPatient(id).call();
@@ -595,15 +595,15 @@ async function testGetSinglePatient(id){
   }
 }
 
-(async () => {
-    const patient_id = await testAddPatient("Joe Biden", 99, 78, 180);
-    const doctor_id = await testAddDoctor("Dr. Jane Doe", 30, 70, 180);
-    await testGetAllDoctors();
-    const surgery_id = await testAddSurgery(doctor_id, patient_id, "Knee Surgery");
+/*(async () => {
+    const patient_id = await AddPatient("Joe Biden", 99, 78, 180);
+    const doctor_id = await AddDoctor("Dr. Jane Doe", 30, 70, 180);
+    await GetAllDoctors();
+    const surgery_id = await AddSurgery(doctor_id, patient_id, "Knee Surgery");
     //await testGetPatientCount();
-    await testGetSingleDoctors(doctor_id);
-    testGetSinglePatient(patient_id);
-    //await testGetAllPatients();
-})();
+    await GetSingleDoctors(doctor_id);
+    await GetSinglePatient(patient_id);
+    await GetAllPatients();
+})();*/
 
-export {testAddDoctor, testAddPatient, testAddSurgery, testGetAllDoctors, testGetAllPatients, testGetSingleDoctors, testGetSinglePatient};
+export {AddDoctor, AddPatient, AddSurgery, GetAllDoctors, GetAllPatients, GetSingleDoctors, GetSinglePatient};
