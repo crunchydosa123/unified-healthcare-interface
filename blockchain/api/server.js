@@ -1,5 +1,7 @@
 import { AddDoctor, AddPatient, AddSurgery, GetAllDoctors, GetAllPatients, GetSingleDoctors, GetSinglePatient } from "./helper_functions.js";
 
+
+
 // Add a new doctor
 AddDoctor("Dr. Smith", 45, 70, 180).then(() => {
   console.log("Doctor added.");

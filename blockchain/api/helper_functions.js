@@ -523,7 +523,8 @@ async function GetPatientCount(){
     try {
         const account = await getAccount(); 
         const res = await contract.methods.getPatientCount().call({ from: account, gas: 500000 });
-        console.log({res: Number(res)});
+        return {res: Number(res)};
+        //console.log({res: Number(res)});
     } catch (error) {
         console.error("❌ Error adding patient:", error);
     }
@@ -533,7 +534,8 @@ async function GetAllPatients(){
     try {
         const account = await getAccount(); 
         const res = await contract.methods.getPatients().call();
-        console.log(res);
+        return res;
+        //console.log(res);
     } catch (error) {
         console.error("❌ Error fething patients:", error);
     }
@@ -543,8 +545,9 @@ async function AddSurgery(doctorid, patientid, description){
   try {
       const account = await getAccount(); 
       const id = uuidv4();
-      const res = await contract.methods.addSurgery(id, doctorid, patientid, description).send({ from: account, gas: 500000 });;
-      console.log("Surgery added: ", res);
+      const res = await contract.methods.addSurgery(id, doctorid, patientid, description).send({ from: account, gas: 500000 });
+      return res;
+      //console.log("Surgery added: ", res);
       return id;
   } catch (error) {
       console.error("❌ Error adding doctor:", error);
@@ -556,7 +559,8 @@ async function AddDoctor(name, age, weight, height){
       const account = await getAccount(); 
       const id = uuidv4();
       const res = await contract.methods.addDoctor(id, name, age, weight, height).send({ from: account, gas: 500000 });;
-      console.log("Doctor added: ", res);
+      return res;
+      //console.log("Doctor added: ", res);
 
       return id;
   } catch (error) {
@@ -568,7 +572,8 @@ async function GetAllDoctors(){
   try {
       const account = await getAccount(); 
       const res = await contract.methods.getDoctors().call();
-      console.log("Doctors: ", res);
+      return res;
+      //console.log("Doctors: ", res);
   } catch (error) {
       console.error("❌ Error fething doctors:", error);
   }
@@ -578,7 +583,8 @@ async function GetSingleDoctors(id){
   try {
       const account = await getAccount(); 
       const res = await contract.methods.getDoctor(id).call();
-      console.log("Doctor found: ", res);
+      return res;
+      //console.log("Doctor found: ", res);
   } catch (error) {
       console.error("❌ Error fething doctors:", error);
   }
@@ -589,7 +595,8 @@ async function GetSinglePatient(id){
   try {
       const account = await getAccount(); 
       const res = await contract.methods.getPatient(id).call();
-      console.log("Patient found: ", res);
+      return res;
+      //console.log("Patient found: ", res);
   } catch (error) {
       console.error("❌ Error fething doctors:", error);
   }
