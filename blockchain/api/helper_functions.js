@@ -559,7 +559,7 @@ async function AddDoctor(name, age, weight, height){
       const account = await getAccount(); 
       const id = uuidv4();
       const res = await contract.methods.addDoctor(id, name, age, weight, height).send({ from: account, gas: 500000 });;
-      return res;
+      return id;
       //console.log("Doctor added: ", res);
 
       return id;
@@ -613,4 +613,4 @@ async function GetSinglePatient(id){
     await GetAllPatients();
 })();*/
 
-export {AddDoctor, AddPatient, AddSurgery, GetAllDoctors, GetAllPatients, GetSingleDoctors, GetSinglePatient};
+export {AddDoctor, AddPatient, AddSurgery, GetAllDoctors, GetAllPatients, GetSingleDoctors, GetSinglePatient, getAccount};

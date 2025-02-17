@@ -1,5 +1,5 @@
 import './App.css'
-import Homepage from './pages/Homepage'
+import Homepage from './pages/Homepage.tsx'
 import Loginpage from './pages/auth/Loginpage'
 import { Route, Routes, BrowserRouter } from "react-router-dom"
 import { Provider } from "react-redux";
@@ -7,6 +7,8 @@ import { store } from "./store/store";
 import Signuppage from './pages/auth/Signuppage';
 import DoctorDashboard from './pages/doctor/DoctorDashboard';
 import PatientDashboard from './pages/patient/PatientDashboard';
+import AddPatient from './pages/doctor/AddPatient.tsx';
+import PatientProfile from './pages/patient/PatientProfile.tsx';
 
 
 function App() {
@@ -22,7 +24,10 @@ function App() {
         <Route path="/signup" element={<Signuppage />} />
 
         <Route path="/doc/dashboard" element={<DoctorDashboard />} />
+        <Route path="/doc/add-patient" element={<AddPatient />} />
+
         <Route path="/pat/dashboard" element={<PatientDashboard />} />
+        <Route path="/pat/profile" element={<PatientProfile />} />
         </Routes>
       </BrowserRouter> 
       </Provider>   
