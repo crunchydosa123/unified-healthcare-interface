@@ -9,6 +9,7 @@ import DoctorDashboard from './pages/doctor/DoctorDashboard';
 import PatientDashboard from './pages/patient/PatientDashboard';
 import AddPatient from './pages/doctor/AddPatient.tsx';
 import PatientProfile from './pages/patient/PatientProfile.tsx';
+import AddPatient2 from './pages/doctor/AddPatient2.tsx';
 
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
         <Route path="/signup" element={<Signuppage />} />
 
         <Route path="/doc/dashboard" element={<DoctorDashboard />} />
-        <Route path="/doc/add-patient" element={<AddPatient />} />
+        <Route path="/doc/add-patient" element={<AddPatient2 />} />
 
         <Route path="/pat/dashboard" element={<PatientDashboard />} />
         <Route path="/pat/profile" element={<PatientProfile />} />
