@@ -10,6 +10,9 @@ import PatientDashboard from './pages/patient/PatientDashboard';
 import AddPatient from './pages/doctor/AddPatient.tsx';
 import PatientProfile from './pages/patient/PatientProfile.tsx';
 import AddPatient2 from './pages/doctor/AddPatient2.tsx';
+import ViewPatients from './pages/doctor/ViewPatients.tsx';
+import ViewCertificates from './pages/doctor/ViewCertificates.tsx';
+import IssueCertificate from './pages/doctor/IssueCertificate.tsx';
 
 
 function App() {
@@ -26,6 +29,9 @@ function App() {
 
         <Route path="/doc/dashboard" element={<DoctorDashboard />} />
         <Route path="/doc/add-patient" element={<AddPatient2 />} />
+        <Route path="/doc/view-patients" element={<ViewPatients />} />
+        <Route path="/doc/view-certificates" element={<ViewCertificates />} />
+        <Route path="/doc/issue-certificates" element={<IssueCertificate />} />
 
         <Route path="/pat/dashboard" element={<PatientDashboard />} />
         <Route path="/pat/profile" element={<PatientProfile />} />
