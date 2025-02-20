@@ -51,6 +51,7 @@ The React frontend should now be accessible in the browser.
 - Decentralized storage for verifiable certificates ✅
 
 ## 🤝 Contributing
+This is a personal project, but I will be happy to hear your suggestions and improve UHI!
 1. Fork the repository 📌
 2. Clone the project locally
 3. Create a feature branch (`git checkout -b feature-name`)
@@ -60,8 +61,5 @@ The React frontend should now be accessible in the browser.
 
 ## 📜 License
 This project is licensed under the MIT License.
-
-## 📞 Support
-For issues or feature requests, open a GitHub issue or contact the maintainers.
 
 Happy coding! 🚀
